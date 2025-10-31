@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محفظتي - My Wallet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>محفظتي</h1>
+            <p class="subtitle">تطبيق إدارة المال الشخصي</p>
+        </header>
+
+        <!-- عرض الرصيد الحالي -->
+        <section class="balance-section">
+            <h2>الرصيد الحالي</h2>
+            <div class="balance-display" id="balanceDisplay">
+                <span class="balance-amount">0.00</span>
+                <span class="currency">ر.س</span>
+            </div>
+        </section>
+
+        <!-- تعيين/تعديل الرصيد -->
+        <section class="initial-balance-section">
+            <h2>تعيين أو تعديل الرصيد</h2>
+            <form id="initialBalanceForm">
+                <div class="form-group">
+                    <label for="initialBalance">المبلغ:</label>
+                    <input type="number" id="initialBalance" step="0.01" placeholder="أدخل رصيدك الحالي">
+                    <small class="form-hint">يمكنك تعيين رصيدك الأولي أو تعديل الرصيد الحالي</small>
+                </div>
+                <button type="submit" class="btn btn-primary">تعيين الرصيد</button>
+            </form>
+        </section>
+
+        <!-- نموذج إضافة/صرف المال -->
+        <section class="transaction-form">
+            <h2>عملية جديدة</h2>
+            <form id="transactionForm">
+                <div class="form-group">
+                    <label for="amount">المبلغ:</label>
+                    <input type="number" id="amount" min="0" step="0.01" required placeholder="أدخل المبلغ">
+                </div>
+
+                <div class="form-group">
+                    <label for="note">الملاحظة:</label>
+                    <input type="text" id="note" required placeholder="مثال: مرتب، أكل، مواصلات">
+                </div>
+
+                <div class="form-group">
+                    <label>نوع العملية:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="إيداع" checked>
+                            <span>إيداع</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="صرف">
+                            <span>صرف</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">تنفيذ العملية</button>
+            </form>
+        </section>
+
+        <!-- أزرار التحكم -->
+        <section class="controls">
+            <button id="showBalanceBtn" class="btn btn-secondary">عرض الرصيد</button>
+            <button id="showHistoryBtn" class="btn btn-secondary">عرض السجل</button>
+        </section>
+
+        <!-- سجل المعاملات -->
+        <section class="history-section" id="historySection" style="display: none;">
+            <h2>سجل المعاملات</h2>
+            <div id="historyDisplay" class="history-list">
+                <!-- سيتم ملء هذا القسم ديناميكياً -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
